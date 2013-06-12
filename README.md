@@ -9,6 +9,8 @@ It tests the `ifconfig` resource against `Debian` and `Ubuntu` using [test-kitch
 
 The vagrant boxes are publicly downloadable, see the [kitchen.yml](https://github.com/onddo/chef3029-cookbook/tree/master/.kitchen.yml) file. This boxes have a **non-stable version of Chef** 11.4.0 from [the last Pull Request on the ticket](https://github.com/btm/chef/pull/1) (2013-05-24).
 
+It is recommended to look at [the used recipe](https://github.com/onddo/chef3029-cookbook/tree/master/recipes/default.rb) and the [tests](https://github.com/onddo/chef3029-cookbook/tree/master/test/integration/default/bats/).
+
 Tested Platforms
 ----------------
 
@@ -19,8 +21,6 @@ This version of Chef has been tested in the following platforms using this cookb
 * Ubuntu 10.04 (`ifconfig` resource NOT supported)
 * Ubuntu 11.10
 * CentOS 6.4
-
-It is recommended to look at [the used recipe](https://github.com/onddo/chef3029-cookbook/tree/master/recipes/default.rb) and the [tests](https://github.com/onddo/chef3029-cookbook/tree/master/test/integration/default/bats/).
 
 Requirements
 ------------
