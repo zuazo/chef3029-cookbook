@@ -21,7 +21,7 @@ case node['platform']
 when 'redhat', 'centos', 'scientific', 'fedora', 'suse', 'amazon' then
   package 'redhat-lsb'
 when 'debian', 'ubuntu' then
-  package 'lsb'
+  # package 'lsb' # installed by default
 end
 
 ifconfig '10.22.33.44' do
