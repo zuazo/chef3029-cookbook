@@ -1,9 +1,26 @@
 CHEF-3029 Cookbook
-=================
+==================
 
-This is a cookbook for testing the [CHEF-3029](http://tickets.opscode.com/browse/CHEF-3029) opscode ticket.
+This is a cookbook for testing the following Opscode ticket:
 
-It tests the `ifconfig` resource against `Debian` and `Ubuntu`.
+* [CHEF-3029: ifconfig provider for debian/ubuntu platforms](http://tickets.opscode.com/browse/CHEF-3029)
+
+It tests the `ifconfig` resource against `Debian` and `Ubuntu` using [test-kitchen](https://github.com/opscode/test-kitchen).
+
+The vagrant boxes are publicly downloadable, see the [kitchen.yml](https://github.com/onddo/chef3029-cookbook/tree/master/.kitchen.yml) file. This boxes have a **non-stable version of Chef** 11.4.0 from [the last Pull Request on the ticket](https://github.com/btm/chef/pull/1) (2013-05-24).
+
+Tested Platforms
+----------------
+
+This version of Chef has been tested in the following platforms using this cookbook:
+
+* Debian 6.0.7 (`ifconfig` resource NOT supported)
+* Debian 7.0.0
+* Ubuntu 10.04 (`ifconfig` resource NOT supported)
+* Ubuntu 11.10
+* CentOS 6.4
+
+It is recommended to look at [the used recipe](https://github.com/onddo/chef3029-cookbook/tree/master/recipes/default.rb) and the [tests](https://github.com/onddo/chef3029-cookbook/tree/master/test/integration/default/bats/).
 
 Requirements
 ------------
@@ -13,10 +30,31 @@ Requirements
 Usage
 -----
 
-This cookbook is oriented to be used with kitchen for testing.
+This cookbook is aimed to be used with `test-kitchen` for testing the `ifconfig` resource.
+
+```bash
+$ kitchen list
+Instance                   Last Action
+default-debian6-chef3029   <Not Created>
+default-debian7-chef3029   <Not Created>
+default-ubuntu10-chef3029  <Not Created>
+default-ubuntu11-chef3029  <Not Created>
+default-centos6-chef3029   <Not Created>
+```
 
 ```bash
 $ kitchen verify
+-----> Starting Kitchen (v1.0.0.alpha.7)
+# [...]
+```
+
+```bash
+Instance                   Last Action
+default-debian6-chef3029   Verified
+default-debian7-chef3029   Verified
+default-ubuntu10-chef3029  Verified
+default-ubuntu11-chef3029  Verified
+default-centos6-chef3029   Verified
 ```
 
 Contributing
