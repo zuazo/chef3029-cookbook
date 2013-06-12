@@ -17,6 +17,13 @@
 # limitations under the License.
 #
 
+case node['platform']
+when 'redhat', 'centos', 'scientific', 'fedora', 'suse', 'amazon' then
+  package 'redhat-lsb'
+when 'debian', 'ubuntu' then
+  package 'lsb'
+end
+
 ifconfig '10.22.33.44' do
   mask '255.255.255.0'
   device 'eth0:1'
